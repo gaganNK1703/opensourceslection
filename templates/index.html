@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Open Source Selection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='C:\\HPE_PROJECT\\env\\static\\style.css') }}">
+</head>
+<center>
+<body bgcolor="cadetblue">
+    <div class="container">
+        <h1>Open Source Selection System</h1>
+        {% if error %}
+            <p class="error">No results found. Please try again.</p>
+        {% endif %}
+        <form action="{{ url_for('search') }}" method="POST">
+            <label for="query">Keywords:</label>
+            <input type="text" name="query" id="query" required>
+            <label for="platform">Platform:</label>
+            <select name="platform" id="platform">
+                <option value="npm">npm</option>
+                <option value="maven">maven</option>
+                <option value="github">GitHub</option>
+            </select>
+            <label for="license_type">License Type:</label>
+            <select name="license_type" id="license_type">
+                <option value="MIT">MIT</option>
+                <option value="Apache-2.0">Apache-2.0</option>
+                <option value="BSD-2-Clause">BSD-2-Clause</option>
+                <option value="BSD-3-Clause">BSD-3-Clause</option>
+                <option value="GPL-2.0">GPL-2.0</option>
+                <option value="GPL-3.0">GPL-3.0</option>
+                <option value="ISC">ISC</option>
+                <option value="LGPL-2.1">LGPL-2.1</option>
+                <option value="LGPL-3.0">LGPL-3.0</option>
+                <option value="MPL-2.0">MPL-2.0</option>
+                <option value="Unlicense">Unlicense</option>
+            </select>
+            <label for="sort_by">Sort By:</label>
+            <select name="sort_by" id="sort_by">
+                <option value="stars">Stars</option>
+                <option value="rank">Rank</option>
+                <option value="dependents_count">Dependents Count</option>
+                <option value="dependent_repos_count">Dependent Repos Count</option>
+                <option value="latest_release_published_at">Latest Release Published At</option>
+                <option value="contributions_count">Contributions Count</option>
+                <option value="created_at">Created At</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+</body>
+</center>
+</html>
